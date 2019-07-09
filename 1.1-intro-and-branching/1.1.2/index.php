@@ -11,16 +11,16 @@
     $currentDay = date("N") - 1;
 
     if (($currentHour >= 6 && $currentHour <= 9) || ($currentHour == 10 && $currentMin <= 59)) {
-        $currentHourGreeting = $greetings[morning];
+        $currentHourGreeting = $greetings['morning'];
         $image = 'morning';
     } elseif (($currentHour >= 11 && $currentHour <= 16) || ($currentHour == 17 && $currentMin <= 59)) {
-        $currentHourGreeting = $greetings[day];
+        $currentHourGreeting = $greetings['day'];
         $image = 'day';
     } elseif (($currentHour >= 18 && $currentHour <= 21) || ($currentHour == 22 && $currentMin <= 59)) {
-        $currentHourGreeting = $greetings[evening];
+        $currentHourGreeting = $greetings['evening'];
         $image = 'evening';
     } elseif (($currentHour >= 0 && $currentHour <= 4) || ($currentHour == 5 && $currentMin <= 59) || ($currentHour == 23 && $currentMin <= 59)) {
-        $currentHourGreeting = $greetings[night];
+        $currentHourGreeting = $greetings['night'];
         $image = 'night';
     }
 ?>
