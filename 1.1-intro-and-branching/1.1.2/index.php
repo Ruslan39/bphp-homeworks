@@ -12,16 +12,16 @@
 
     if (($currentHour >= 6 && $currentHour <= 9) || ($currentHour == 10 && $currentMin <= 59)) {
         $currentHourGreeting = $greetings[morning];
-        $image = 'img/morning.jpg';
+        $image = 'morning';
     } elseif (($currentHour >= 11 && $currentHour <= 16) || ($currentHour == 17 && $currentMin <= 59)) {
         $currentHourGreeting = $greetings[day];
-        $image = 'img/day.jpg';
+        $image = 'day';
     } elseif (($currentHour >= 18 && $currentHour <= 21) || ($currentHour == 22 && $currentMin <= 59)) {
         $currentHourGreeting = $greetings[evening];
-        $image = 'img/evening.jpg';
+        $image = 'evening';
     } elseif (($currentHour >= 0 && $currentHour <= 4) || ($currentHour == 5 && $currentMin <= 59) || ($currentHour == 23 && $currentMin <= 59)) {
         $currentHourGreeting = $greetings[night];
-        $image = 'img/night.jpg';
+        $image = 'night';
     }
 ?>
 
@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div class="img" style="background-image: url(<?= $image; ?>)">
+    <div class="img <?= $image; ?>">
         <div class="greeting">
             <h1><?= "$currentHourGreeting <br> Сегодня - $days[$currentDay]"; ?></h1>
         </div>

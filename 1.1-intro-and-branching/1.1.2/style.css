@@ -7,6 +7,22 @@ html {
     height: 0;
 }
 
+.morning {
+    background-image: url(img/morning.jpg);
+}
+
+.day {
+    background-image: url(img/day.jpg);
+}
+
+.evening {
+    background-image: url(img/evening.jpg);
+}
+
+.night {
+    background-image: url(img/night.jpg);
+}
+
 .img {
     width: 100%;
     height: 100vh;
