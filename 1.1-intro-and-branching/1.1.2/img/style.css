@@ -1,0 +1,47 @@
+body,html {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 0;
+}
+
+.morning {
+    background-image: url(img/morning.jpg);
+}
+
+.day {
+    background-image: url(img/day.jpg);
+}
+
+.evening {
+    background-image: url(img/evening.jpg);
+}
+
+.night {
+    background-image: url(img/night.jpg);
+}
+
+.img {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+}
+
+.greeting {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    padding: 12px;
+}
