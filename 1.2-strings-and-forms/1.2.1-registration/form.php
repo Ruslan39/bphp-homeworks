@@ -11,40 +11,34 @@
     $passwordLength = strlen($password);
     $codeTrimmedtoLower = strtolower(trim($code, " "));
 
-    $registrationPassed = 0;
+    $registrationError = 0;
 
     if (preg_match('/[@\/*?,;:]/', $login) === 1) {
         echo 'Логин не должен содержать следующие символы: @/*?,;:<br>';
-    } else {
-        ++$registrationPassed;
+        ++$registrationError;
     }
 
     if ($passwordLength < 8 ) {
         echo 'Пароль должен быть длиной минимум 8 символов<br>';
-    } else {
-        ++$registrationPassed;
+        ++$registrationError;
     }
 
     if (preg_match('/[^s]+@[^s\.]+\.[^s]+$/', $email) === 0) {
         echo 'Почта должна быть формата почта@домен.доменнаязона<br>';
-    } else {
-        ++$registrationPassed;
+        ++$registrationError;
     }
 
     if (strlen($firstName) == 0 || strlen($lastName) == 0 || strlen($middleName) == 0) {
         echo 'Поля Фамилия, Имя, Отчество не могут быть пустыми<br>';
-    } else {
-        ++$registrationPassed;
+        ++$registrationError;
     }
     
     if (strlen($code) ===0 || strcmp($codeWord, $codeTrimmedtoLower) === 1) {
         echo 'Кодовые слова не совпадают<br>';
-    } else {
-        ++$registrationPassed;
+        ++$registrationError;
     }
 
-    // Количество условий успешной регистрации = 5
-    if ($registrationPassed === 5) {
+    if ($registrationError === 0) {
         echo 'Регистрация успешно завершена<br>';
     }
 ?>
