@@ -22,9 +22,14 @@
                     <li><a href="1.2-strings-and-forms/1.2.3-additional">Задание 1.2.3</a></li>
                 </ul>
             </li>
+            <li>Занятие 1.3. Работа с массивами и функциями
+                <ul>
+                    <li><a href="1.3-arrays-and-functions/1-places">Задание 1.3.1</a></li>
+                    <li><a href="1.3-arrays-and-functions/2-search">Задание 1.3.2</a></li>
+                </ul>
+            </li>
         </ul>
     </li>
 </ul>
 </body>
 </html>
-
