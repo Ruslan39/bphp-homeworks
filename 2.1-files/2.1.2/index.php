@@ -17,7 +17,9 @@
         <?php
         
         if ($_SERVER['REQUEST_METHOD']=='POST') {
-            $uploadsDir = './uploads';
+            $uploadsDir = 'uploads/';
+            if(!is_dir($uploadsDir)) {
+                mkdir($uploadsDir, 0777, true);}
             $tmpName = $_FILES['picture']['tmp_name'];
             $name = basename($_FILES['picture']['name']);
 
@@ -29,7 +31,7 @@
                 $filesUploaded = array_diff(scandir($uploadsDir), array('.', '..'));
                 foreach($filesUploaded as $key => $value) {
                     echo '<div>';
-                    $path = "uploads/$filesUploaded[$key]";
+                    $path = "$uploadsDir$filesUploaded[$key]";
                     echo "<img src='$path' alt='' />";
                     echo '</div>';
                 }
