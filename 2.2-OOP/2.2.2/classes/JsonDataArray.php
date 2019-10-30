@@ -20,7 +20,7 @@ class JsonDataArray
     const PARAM_TYPE_STRING = 2;
     const PARAM_TYPE_UNSORTED = 3;
 
-    public function __construct($dataModelName = null)
+    public function __construct($dataModelName = null)  
     {
         $dataModelName =  $dataModelName ?? strtolower(static::class);
         $this->file = new JsonFileAccessModel($dataModelName);
@@ -29,8 +29,8 @@ class JsonDataArray
 
     public function load()
     {
-        $this->dataTitle = $this->file->readJson()->dataTitle;
-        $this->dataArray = (array)$this->file->readJson()->dataArray;
+        $this->dataTitle = $this->file->readJson()[dataTitle];
+        $this->dataArray = (array)$this->file->readJson()[dataArray];
         $this->newQuery();
     }
 
@@ -88,7 +88,7 @@ class JsonDataArray
 
     public function add($obj)
     {
-        $guid = self::GUID_PREFIX . ++$this->dataTitle->last_guid;
+        $guid = self::GUID_PREFIX . ++$this->dataTitle[last_guid];
         $this->dataArray[$guid] = $obj;
         $this->query = [$guid];
         return $guid;
@@ -205,7 +205,7 @@ class JsonDataArray
         }
 
         $this_guid = $arr[0];
-        $this_param_val = $this->dataArray[$this_guid]->$param;
+        $this_param_val = $this->dataArray[$this_guid][$param];
         $left_arr = [];
         $right_arr = [];
 
@@ -213,10 +213,10 @@ class JsonDataArray
             if (
                 (
                     ($this_param_val === null) ||
-                    ($this->dataArray[$arr[$i]]->$param === null
+                    ($this->dataArray[$arr[$i]][$param] === null
                     )
                 ) xor
-                strcasecmp($this->dataArray[$arr[$i]]->$param, $this_param_val) > 0
+                strcasecmp($this->dataArray[$arr[$i]][$param], $this_param_val) > 0
             ) {
                 $right_arr[] = $arr[$i];
             } else {
@@ -232,7 +232,7 @@ class JsonDataArray
 
     private function identifyParamType($param, $iteration = 0, $max = null)
     {
-        $paramExample = $this->dataArray[$this->query[$iteration]]->$param;
+        $paramExample = $this->dataArray[$this->query[$iteration]][$param];
         if (is_null($max)) {
             $max = $this->count();
         }
