@@ -7,7 +7,7 @@
     <title>2.2.2</title>
 </head>
 <body>
-    <form action="./formActions/addUser.php" method='post'>
+    <form action="formActions/addUser.php" method='post'>
         <p>Имя: <input type='text' name="name"></p>
         <p>Пароль: <input type='password' name="password"></p>
         <p>Электронная почта: <input type='email' name="email"></p>
@@ -18,11 +18,11 @@
 </body>
 </html>
 
-<?php
+<?php 
 
 require 'autoload.php';
 require 'config/SystemConfig.php';
 
-$users = new Users(users);
+$users = new Users('users');
 $users->displaySortedList();
 ?>

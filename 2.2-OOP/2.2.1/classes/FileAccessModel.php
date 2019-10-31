@@ -12,7 +12,7 @@ class FileAccessModel
  
     protected function connect($mode)
     {
-        $this->file = fopen("$this->fileName", "$mode");
+        $this->file = fopen($this->fileName, $mode);
     }
 
     protected function disconnect()
@@ -22,8 +22,8 @@ class FileAccessModel
 
     public function read()
     {
-        $this->connect(r);
-        $fileSize = filesize("$this->fileName");
+        $this->connect('r');
+        $fileSize = filesize($this->fileName);
         $content = fread($this->file, $fileSize);
         $this->disconnect();
         return $content;
@@ -31,8 +31,8 @@ class FileAccessModel
 
     public function write($newContent)
     {
-        $this->connect(w);
-        fwrite($this->file, "$newContent");
+        $this->connect('w');
+        fwrite($this->file, $newContent);
         $this->disconnect();
     }
 }
