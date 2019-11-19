@@ -1,7 +1,7 @@
 <?php 
 
-// require '../autoload.php';
-// require '../config/SystemConfig.php';
+require '../autoload.php';
+require '../config/SystemConfig.php';
 
 $newUser = new User();
 $newUser->addUserFromForm($_REQUEST);

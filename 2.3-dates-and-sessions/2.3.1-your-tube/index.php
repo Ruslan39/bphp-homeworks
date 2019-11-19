@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
     /**
      * Функция получает текущее количество просмотров на видео
      *
@@ -6,6 +9,8 @@
      */
     function getViews()
     {
+        shouldBeIncremented();
+
         $views = include 'views.php';
         return (int) $views;
     }
@@ -29,11 +34,17 @@
      */
     function shouldBeIncremented(): bool
     {
-        //write your code here
+        if ( !isset($_SESSION['sessionTimeStart']) or ( time() - $_SESSION['sessionTimeStart'] ) > 300 ) 
+        {
+            $_SESSION['sessionTimeStart'] = time();
+            incrementViews(include 'views.php');
+            return true;
+        }
+        
+        return false;        
     }
-
-    //
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

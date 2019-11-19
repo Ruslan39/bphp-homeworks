@@ -33,11 +33,17 @@
                     <li><a href="2.1-files/2.1.1">Задание 2.1.1</a></li>
                     <li><a href="2.1-files/2.1.2">Задание 2.1.2</a></li>
                 </ul>
-            </li> -->
+            </li>
             <li>Занятие 2.2. ООП
                 <ul>
                     <li><a href="2.2-OOP/2.2.1">Задание 2.2.1</a></li>
-                    <li><a href="2.2-OOP\2.2.2">Задание 2.2.2</a></li>
+                    <li><a href="2.2-OOP/2.2.2">Задание 2.2.2</a></li>
+                </ul>
+            </li> -->
+            <li>Занятие 2.3. Работа с датами и сессиями
+                <ul>
+                    <li><a href="2.3-dates-and-sessions/2.3.1-your-tube">Задание 2.3.1</a></li>
+                    <li><a href="2.3-dates-and-sessions/2.3.2-brute-protection">Задание 2.3.2</a></li>
                 </ul>
             </li>
         </ul>

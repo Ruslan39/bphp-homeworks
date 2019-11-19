@@ -12,7 +12,7 @@ class JsonFileAccessModel
  
     private function connect($mode)
     {
-        $this->file = fopen($this->fileName, $mode);  //Добавил ../ и заработало
+        $this->file = fopen($this->fileName, $mode);
     }
 
     private function disconnect()
@@ -23,7 +23,7 @@ class JsonFileAccessModel
     public function readJson()
     {
         $this->connect('r');
-        $fileSize = filesize($this->fileName); //Добавил ../ и заработало
+        $fileSize = filesize($this->fileName);
         $content = fread($this->file, $fileSize);
         $contentFromJson = json_decode($content, JSON_PRETTY_PRINT, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK);
         $this->disconnect();    

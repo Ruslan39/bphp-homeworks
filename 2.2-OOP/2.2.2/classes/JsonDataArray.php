@@ -88,7 +88,7 @@ class JsonDataArray
 
     public function add($obj)
     {
-        $guid = self::GUID_PREFIX . ++$this->dataTitle[last_guid];
+        $guid = self::GUID_PREFIX . ++$this->dataTitle['last_guid'];
         $this->dataArray[$guid] = $obj;
         $this->query = [$guid];
         return $guid;
