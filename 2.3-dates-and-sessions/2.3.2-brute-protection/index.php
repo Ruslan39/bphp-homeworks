@@ -7,8 +7,6 @@ $users = [
     'janitor' => 'nimbus2000'
 ];
 
-include 'form.html';
-
 if( !empty($_POST) )
 {
     if( !isset($_SESSION['loginAttempts']) )
@@ -27,11 +25,10 @@ if( !empty($_POST) )
     {
         setcookie( "$_REQUEST[login]", "$loginTime", time() + 60 );  //запоминаю на 1 минуту время последней попытки логирования для каждого пользователя
         
-        if( $users[$_REQUEST['login']] == $_REQUEST['password'] )
+        if( isset($users[$_REQUEST['login']]) AND ( $users[$_REQUEST['login']] == $_REQUEST['password'] ) )
         {
             echo '<br>Авторизация пройдена!';
             $_SESSION['loginAttempts'] = 0;
-            exit;
 
         } else if( isset($users[$_REQUEST['login']]) ) {
             $timeFromLastLogin = $loginTime - $_COOKIE[$_REQUEST['login']];
@@ -74,3 +71,27 @@ if( !empty($_POST) )
     }    
 }
 ?>
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Авторизация</title>
+  <style type="text/css">
+    input {
+		display: block;
+		margin-top: 10px;
+	}
+	button {
+		margin-top: 10px;
+	}
+  </style>
+</head>
+<body>
+<form action="" method="post">
+  <input type="text" name="login" placeholder="Логин" required>
+  <input type="password" name="password" placeholder="Пароль" required>
+  <button type="submit">Отправить</button>
+</form>
+</body>
+</html>
